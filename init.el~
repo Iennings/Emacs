@@ -1,0 +1,211 @@
+(package-initialize)
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;;Package Management
+(require 'init-packages)
+(require 'init-ui)
+(require 'init-keybindings)
+(require 'init-better-defaults)
+(require 'org)
+(require 'evil-leader)
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+;;(package-initialize)
+
+;;自动加载外部修改过的文件
+(global-auto-revert-mode 1)
+
+;;解码设置默认为utf-8
+(set-language-environment "UTF-8")
+
+;; (tool-bar-mode -1)
+
+;; (scroll-bar-mode -1)
+
+;; ;;显示行号
+;; (global-linum-mode 1)
+
+
+;; (setq inhibit-splash-screen 1)
+
+;; (setq make-backup-files nil)
+
+;;打开最近文件
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-item 10)
+;; (global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
+
+;; (delete-selection-mode 1)
+
+;;行高亮
+;; (global-hl-line-mode 1)
+
+;;设置文字大小
+;; (set-face-attribute 'default nil :height 140)
+
+
+;;加载主题
+;; (add-to-list 'my/packages 'monokai-theme)
+;; (load-theme 'monokai 1)
+;;(add-to-list 'my/packages 'solarized-theme)
+;;(load-theme 'solarized-dark 1)
+
+;;开启默认全屏
+;; (setq initial-frame-alist (quote ((fullscreen . maximized))))
+
+
+;;smartparens
+;; (require 'smartparens-config)
+;;;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+;; (smartparens-global-mode t)
+
+;;org插件配置(还未使用过）
+;; (require 'org)
+;; (setq org-src-fontify-natively t)
+;; (setq org-agenda-files '("~/Learning-note/org"))
+;;设置默认的目标文件，并为捕获一个新的任务定义了一个全局快捷键。
+;;(setq org-default-notes-file (concat "~/Learning-note" "/notes.org"))
+;;(define-key global-map (kbd "C-c c" 'org-capture)
+
+;; (global-set-key (kbd "C-c a") 'org-agenda)
+;; (global-set-key (kbd "C-c l") 'org-store-link)
+;; (global-set-key (kbd "C-c b") 'org-iswitchb)
+
+;;hungry-mode 插件
+;; (require 'hungry-delete)
+;; (global-hungry-delete-mode)
+
+
+;;swiper插件
+
+;;popwin插件配置,将光标移动到新建窗口中
+;; (require 'popwin)
+;; (popwin-mode 1)
+
+;;ag插件，搜索使用(还未学会）
+;;(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
+;;yasnippet自动补全插件（还未使用）
+;; (require 'yasnippet)
+;; (yas-global-mode 1)
+;; (yas-reload-all)
+;; (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;;(global-set-key (kbd "H-w") #'aya-create)
+;;(global-set-key (kbd "H-y") #'aya-expand)
+
+;;expand-region 选中区域（还未安装）
+
+
+;;FLYCHECK安转后还未配置使用
+
+;;evil模式开启
+;; (global-evil-leader-mode 1)
+;; (evil-mode 1)
+;;evil-leader 键
+(evil-leader/set-leader "<SPC>")
+(evil-leader/set-key
+  "ff" 'find-file
+  "bb" 'switch-to-buffer
+  "0"  'select-window-0
+  "1"  'select-window-1
+  "2"  'select-window-2
+  "3"  'select-window-3
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  ":"  'counsel-M-x
+  "wM" 'delete-other-windows
+;;  "s"  'save-excursion
+  )
+
+;;window-numbering 插件开启
+;; (window-numbering-mode 1)
+
+;;evil-surround
+;; (require 'evil-surround)
+;; (global-evil-surround-mode 1)
+
+;;evil-nerd-commenter快速注释插件
+;; (evilnc-default-hotkeys)
+;; (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+;; (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+
+;;which-key
+;; (which-key-mode 1)
+
+;;ivy插件
+;; (ivy-mode 1)
+
+;;打开配置文件快捷键
+;; (defun open-init-file()
+;;  (interactive)
+;;  (find-file "~/.emacs.d/init.el"))
+
+;; (global-set-key (kbd "<f2>") 'open-init-file)
+
+;;自动补全功能开启
+;; (global-company-mode 1)
+;; (with-eval-after-load 'company
+;;   (define-key company-active-map (kbd "M-n") nil)
+;;   (define-key company-active-map (kbd "M-p") nil)
+;;   (define-key company-active-map (kbd "C-n") #'company-select-next)
+;;   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+
+;;hippie补全（不知道效果，还没学）
+;; (setq hippie-expand-try-function-list '(try-expand-debbrev
+;;                                         try-expand-debbrev-all-buffers
+;;                                         try-expand-debbrev-from-kill
+;;                                         try-complete-file-name-partially
+;;                                         try-complete-file-name
+;;                                         try-expand-all-abbrevs
+;;                                         try-expand-list
+;;                                         try-expand-line
+;;                                         try-complete-lisp-symbol-partially
+;;                                         try-complete-lisp-symbol))
+;;hippie快捷键
+;; (global-set-key (kbd "s-/") 'hippie-expand)
+
+;;dired配置，开始两个配置是默认递归删除和复制)
+;;C-x d可以进入Dired模式（自己选择路径）,快捷键C-x C-j可以进入当前文件夹的所在路径
+;;(setq dired-recursive-deletes 'always)
+;;(setq dired-recursive-copies 'always)
+
+(put 'dired-find-alternate-file 'disabled nil)
+;;延迟加载
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+(require 'dired-x)
+(setq dired-dwin-target 1)
+
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(company-idle-delay 0.08)
+;;  '(company-minimum-prefix-length 1)
+;;  '(package-selected-packages
+;;    (quote
+;;     (yasnippet-snippets company-irony-c-headers company-rtags rtags irony-eldoc company-irony ycmd flymake-coffee flymake-python-pyflakes xpm helm-ag org-edna company))))
+;; (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+
+;; (add-to-list 'company-backends 'company-anaconda)
+
+;; (add-hook 'python-mode-hook 'anaconda-mode)
+
+(load-file custom-file)
