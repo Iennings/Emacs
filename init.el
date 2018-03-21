@@ -31,6 +31,18 @@
 
 ;;expand-region 选中区域（还未安装）
 
+(require 'impatient-mode)
+(defun my-imp-org-to-html-filter (buffer)
+  (let ((output-buffer (current-buffer))
+        (log-message-max nil))
+    (with-current-buffer buffer
+      (let ((output (org-export-as 'html)))
+        (with-current-buffer output-buffer (insert output))))))
+(defun my-impatient-mode-hook()
+  (progn (imp-set-user-filter 'my-imp-org-to-html-filter)
+         (message "My org-imp-mode hook trigger")))
+(add-hook 'impatient-mode-hook 'my-impatient-mode-hook)
+
 ;;evil模式开启
 (require 'evil)
 (require 'evil-leader)

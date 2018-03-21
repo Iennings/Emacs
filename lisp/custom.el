@@ -7,7 +7,7 @@
  '(company-minimum-prefix-length 1)
  '(package-selected-packages
    (quote
-    (expand-region yasnippet-snippets company-irony-c-headers company-rtags rtags irony-eldoc company-irony ycmd flymake-coffee flymake-python-pyflakes xpm helm-ag org-edna company))))
+    (ac-clang company-auctex auctex impatient-mode pandoc markdown-mode+ org-present org-preview-html expand-region yasnippet-snippets company-irony-c-headers company-rtags rtags irony-eldoc company-irony ycmd flymake-coffee flymake-python-pyflakes xpm helm-ag org-edna company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

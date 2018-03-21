@@ -67,10 +67,10 @@
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
 ;;加载主题
-(add-to-list 'my/packages 'monokai-theme)
-(load-theme 'monokai 1)
-;;(add-to-list 'my/packages 'solarized-theme)
-;;(load-theme 'solarized-dark 1)
+;; (add-to-list 'my/packages 'monokai-theme)
+;; (load-theme 'monokai 1)
+(add-to-list 'my/packages 'solarized-theme)
+(load-theme 'solarized-dark 1)
 
 
 ;;smartparens
@@ -125,6 +125,7 @@
 
 ;;自动补全功能开启
 (require 'company)
+;;(add-hook 'after-init-hook 'global-company-mode)
 (global-company-mode 1)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
